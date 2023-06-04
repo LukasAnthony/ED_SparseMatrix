@@ -24,8 +24,8 @@ void clearScreen() { //TEST
         system("clear");
     #endif
 }
-
 /*
+//---------------------------------------------------------------------------------------------------
 ToDo
 SparseMatrix* readSparseMatrix(string NomeDoArquivo){
 }
