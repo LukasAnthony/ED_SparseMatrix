@@ -28,8 +28,7 @@ void clearScreen() { //TEST
 //---------------------------------------------------------------------------------------------------
 ToDo
 SparseMatrix* readSparseMatrix(string NomeDoArquivo){
-  lendo uma matriz;
-  dawdwadwa;
+  aaaaaa;
 }
 ToDo
 //---------------------------------------------------------------------------------------------------
