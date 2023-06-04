@@ -32,6 +32,7 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
 ToDo
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
+  return a + b;
 }
 ToDo
 //---------------------------------------------------------------------------------------------------
