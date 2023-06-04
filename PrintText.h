@@ -9,7 +9,7 @@ void printText(int x){
   if(x == 0){
 
     cout << "----------------------------\n"
-         << "|     Menu de ooopcoes:      |\n"
+         << "|     Menu de opcoes:      |\n"
          << "----------------------------\n"
          << "| 1.  HowToUse             |\n"
          << "| 2.  Criar uma Matriz     |\n"
