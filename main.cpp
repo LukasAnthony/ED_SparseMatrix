@@ -36,6 +36,7 @@ SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
 ToDo
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
+  fazendo o codigo;
 }
 */
 //---------------------------------------------------------------------------------------------------
