@@ -71,7 +71,7 @@ int main(){
 
       try{
         int i, j;
-        cout << "Digite a quantidade de linhass e colunas(respectivamente) da matriz que deseja criar: " << endl;
+        cout << "Digite uma quantidade de linhass e colunas(respectivamente) da matriz que deseja criar: " << endl;
         cin >> i >> j;
         SparseMatrix* tempAux = new SparseMatrix(i, j);
         matrizes.push_back(tempAux);
