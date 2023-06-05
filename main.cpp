@@ -90,10 +90,33 @@ void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
 
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
+  SparseMatrix* C = new SparseMatrix(A->getQtdLinhas(), B->getQtdColunas());
+
+  for(int i = 1; i <= C->getQtdLinhas(); ++i){
+    for(int j = 1; j <= C->getQtdColunas(); ++j){
+      double soma = (A->get(i, j) + B->get(i, j));
+      C->insert(i, j, soma);
+    }
+  }
+
+  return C;
 }
 
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
+  SparseMatrix* C = new SparseMatrix(A->getQtdLinhas(), B->getQtdColunas());
+
+  for(int i = 1; i <= C->getQtdLinhas(); ++i){ // percorre linhas
+    for(int j = 1; j <= C->getQtdColunas(); ++i){ // percorre colunas
+      double soma{0};
+      for(int k = 1; k <= B->getQtdColunas(); ++k){
+        soma += A->get(i, k) * B.get(k, j);
+      }
+      C->insert(i, j, soma);
+    }
+  }
+
+  return C;
 }
 
 //---------------------------------------------------------------------------------------------------
