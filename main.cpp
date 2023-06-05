@@ -106,11 +106,11 @@ SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
 SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
   SparseMatrix* C = new SparseMatrix(A->getQtdLinhas(), B->getQtdColunas());
 
-  for(int i = 1; i <= C->getQtdLinhas(); ++i){ // percorre linhas
-    for(int j = 1; j <= C->getQtdColunas(); ++i){ // percorre colunas
+  for(int i = 1; i <= A->getQtdLinhas(); ++i){ // percorre linhas
+    for(int j = 1; j <= B->getQtdColunas(); ++j){ // percorre colunas
       double soma{0};
-      for(int k = 1; k <= B->getQtdColunas(); ++k){
-        soma += A->get(i, k) * B.get(k, j);
+      for(int k = 1; k <= A->getQtdColunas(); ++k){
+        soma += (A->get(i, k) * B->get(k, j));
       }
       C->insert(i, j, soma);
     }
@@ -265,9 +265,47 @@ int main(){
 
     }else if(opc == 8){ // Somar Matrizes
 
+      if(matrizes.empty()){
+        printText(-1);
+      }else if(matrizes.size() < 2){
+        cout << "Numero de matrizes insuficientes\n" << endl;
+      }else{
+        cout << "Digite os indices das matrizes que deseja somar:" << endl;
+        int i, j;
+        cin >> i >> j;
+
+        if(i < 0 || i >= matrizes.size() || j < 0 || j >= matrizes.size()){
+          printText(-2);
+        }else if(matrizes[i]->getQtdLinhas() != matrizes[j]->getQtdLinhas() || matrizes[i]->getQtdColunas() != matrizes[j]->getQtdColunas()){
+          cout << "Matrizes nao compativeis para a soma(tamanhos diferentes)\n" << endl;
+        }else{
+          matrizes.push_back(sum(matrizes[i], matrizes[j]));
+          cout << "Matrizes somadas com sucesso, nova matriz criada na lista\n" << endl;
+        }
+      }
+
     }else if(opc == 9){ // Multiplicar Matrizes
 
-    }else if(opc == 10){ // ToDo Importar uma Matriz(.txt)
+      if(matrizes.empty()){
+        printText(-1);
+      }else if(matrizes.size() < 2){
+        cout << "Numero de matrizes insuficientes\n" << endl;
+      }else{
+        cout << "Digite os indices das matrizes que deseja multiplicar:" << endl;
+        int i, j;
+        cin >> i >> j;
+
+        if(i < 0 || i >= matrizes.size() || j < 0 || j >= matrizes.size()){
+          printText(-2);
+        }else if(matrizes[i]->getQtdColunas() != matrizes[j]->getQtdLinhas()){
+          cout << "Matrizes nao compativeis para a multiplicacao(quantidade de colunas da primeira e diferente da quantidade de linhas da segunda)\n" << endl;
+        }else{
+          matrizes.push_back(multiply(matrizes[i], matrizes[j]));
+          cout << "Matrizes multiplicadas com sucesso, nova matriz criada na lista\n" << endl;
+        }
+      }
+
+    }else if(opc == 10){ // Importar uma Matriz(.txt)
 
       cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matrizes.txt\"):" << endl;
       string nomeArqv;
