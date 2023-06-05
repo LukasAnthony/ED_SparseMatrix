@@ -12,6 +12,7 @@
 #include <vector>
 #include <string>
 #include <fstream>
+#include <sstream>
 #include "SparseMatrix.h"
 #include "PrintText.h" // Criação de uma biblioteca apenas para imprimir grandes textos
 
@@ -25,21 +26,38 @@ void clearScreen() { //TEST
     #endif
 }
 
-//ToDo---------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------
 SparseMatrix* readSparseMatrix(string NomeDoArquivo){
   fstream arquivo;
   arquivo.open(NomeDoArquivo, ios::in);
 
   if(arquivo.is_open()){
+    SparseMatrix* novaMatriz;
+    stringstream ss;
+    string linha;
+    int aux_linha, aux_coluna, i{0};
+    double aux_val;
 
-    string linhas;
-    int q_linhas, q_colunas;
-
-    SparseMatrix* novaMatriz = new SparseMatrix(q_linhas, q_colunas);
+    while(!arquivo.eof()){
+      getline(arquivo, linha);
+      if(i == 0){
+        ss << linha;
+        ss >> aux_linha >> aux_coluna;
+        novaMatriz = new SparseMatrix(aux_linha, aux_coluna);
+        ++i;
+        ss.str("");
+        ss.clear();
+      }else{
+        ss << linha;
+        ss >> aux_linha >> aux_coluna >> aux_val;
+        novaMatriz->insert(aux_linha, aux_coluna, aux_val);
+        ss.str("");
+        ss.clear();
+      }
+    }
 
     cout << "Matriz importada com sucesso\n" << endl;
     return novaMatriz;
-
   }else{
     cout << "Nao foi possivel abrir o arquivo" << endl;
     return nullptr;
@@ -98,7 +116,7 @@ int main(){
   vector<SparseMatrix*> matrizes;
   int opc{0};
   
-  while(opc != 11){
+  while(opc != 13){
     printText(0);
     cin >> opc;
     clearScreen();
@@ -211,7 +229,7 @@ int main(){
             cout << "Digite " << matrizes[i]->getSize() << " valores para popular a Matriz[" << i << "]" << endl;
           }
           
-          int valor{0};
+          double valor{0};
           for(int j = 1; j <= matrizes[i]->getQtdLinhas(); ++j){
             for(int k = 1; k <= matrizes[i]->getQtdColunas(); ++k){
               cin >> valor;
@@ -228,19 +246,15 @@ int main(){
 
     }else if(opc == 10){ // ToDo Importar uma Matriz(.txt)
 
-      if(matrizes.empty()){
-        printText(-1);
-      }else{
-        cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matrizes.txt\"):" << endl;
-        string nomeArqv;
-        cin >> nomeArqv;
+      cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matrizes.txt\"):" << endl;
+      string nomeArqv;
+      cin >> nomeArqv;
 
-        SparseMatrix* novaMatriz = readSparseMatrix(nomeArqv);
-        if(novaMatriz != nullptr){
-          matrizes.push_back(novaMatriz);
-        }else{
-          delete novaMatriz;
-        }
+      SparseMatrix* novaMatriz = readSparseMatrix(nomeArqv);
+      if(novaMatriz != nullptr){
+        matrizes.push_back(novaMatriz);
+      }else{
+        delete novaMatriz;
       }
 
     }else if(opc == 11){ // Exportar uma Matriz(.txt)
