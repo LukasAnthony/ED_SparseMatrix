@@ -13,15 +13,20 @@ void printText(int x){
          << "----------------------------\n"
          << "| 1.  HowToUse             |\n"
          << "| 2.  Criar uma Matriz     |\n"
-         << "| 3.  Imprimir Matrizes    |\n"
-         << "| 4.  Inserir Valor        |\n"
-         << "| 5.  Popular Matriz       |\n"
-         << "| 6.  Clonar uma Matriz    |\n"
-         << "| 7.  Somar Matrizes       |\n"
-         << "| 8.  Multiplicar Matrizes |\n"
-         << "| 9.  Deletar uma Matriz   |\n"
-         << "| 10. Info do Grupo        |\n"
-         << "| 11. Sair                 |\n"
+         << "| 3.  Clonar uma Matriz    |\n"
+         << "| 4.  Deletar uma Matriz   |\n"
+         << "| 5.  Imprimir Matrizes    |\n"
+         << "| 6.  Inserir Valor        |\n"
+         << "| 7.  Popular Matriz       |\n"
+         << "----------------------------\n"
+         << "| 8.  Somar Matrizes       |\n"
+         << "| 9.  Multiplicar Matrizes |\n"
+         << "----------------------------\n"
+         << "| 10. Importar uma Matriz  |\n"
+         << "| 11. Exportar uma Matriz  |\n"
+         << "----------------------------\n"
+         << "| 12. Info do Grupo        |\n"
+         << "| 13. Sair                 |\n"
          << "----------------------------\n" << endl;
 
   }else if(x == 1){
@@ -31,15 +36,17 @@ void printText(int x){
         "Aqui estao as opcoes do menu que o programa oferece:\n\n"
         "1. HowToUse: Esta opcao apresenta ao usuario esse guia breve de como utilizar este programa.\n\n"
         "2. Criar Matriz: Esta opcao permitira ao usuario criar uma nova matriz esparsa. Sera solicitado ao usuario que forneca o numero de linhas e colunas para a matriz.\n\n"
-        "3. Imprimir Matrizes: Esta opcao permitira ao usuario imprimir todas as matrizes que estao armazenadas.\n\n"
-        "4. Inserir Valor: Esta opcao permitira ao usuario inserir um valor em uma posicao especifica de uma matriz esparsa. O usuario devera escolher a matriz, inserir linha, coluna e o valor a ser inserido.\n\n"
-        "5. Popular Matriz: Esta opcao permitira ao usuario preencher uma matriz inteira com valores de sua escolha.\n\n"
-        "6. Clonar uma Matriz: Esta opcao permitira ao usuario clonar uma matriz existente. O usuario devera fornecer o indice da matriz que sera clonada, a nova matriz sera alocada ao final da lista de matrizes.\n\n"
-        "7. Somar Matrizes: Esta opcao permitira ao usuario somar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem somadas.\n\n"
-        "8. Multiplicar Matrizes: Esta opcao permitira ao usuario multiplicar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem multiplicadas.\n\n"
-        "9. Deletar uma matriz: Esta opcao permitira ao usuario deletar uma matriz especifica. O usuario devera escolher a matriz a ser deletada.\n\n"
-        "10. Grupo: Esta opcao apresentara informacoes sobre o grupo que criou o programa.\n\n"
-        "11. Sair: Esta opcao encerra o programa.\n\n"
+        "3. Clonar uma Matriz: Esta opcao permitira ao usuario clonar uma matriz existente. O usuario devera fornecer o indice da matriz que sera clonada, a nova matriz sera alocada ao final da lista de matrizes.\n\n"
+        "4. Deletar uma matriz: Esta opcao permitira ao usuario deletar uma matriz especifica. O usuario devera escolher a matriz a ser deletada.\n\n"
+        "5. Imprimir Matrizes: Esta opcao permitira ao usuario imprimir todas as matrizes que estao armazenadas.\n\n"
+        "6. Inserir Valor: Esta opcao permitira ao usuario inserir um valor em uma posicao especifica de uma matriz esparsa. O usuario devera escolher a matriz, inserir linha, coluna e o valor a ser inserido.\n\n"
+        "7. Popular Matriz: Esta opcao permitira ao usuario preencher uma matriz inteira com valores de sua escolha.\n\n"
+        "8. Somar Matrizes: Esta opcao permitira ao usuario somar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem somadas.\n\n"
+        "9. Multiplicar Matrizes: Esta opcao permitira ao usuario multiplicar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem multiplicadas.\n\n"
+        "10. Importar uma Matriz: \n\n"
+        "11. Exportar uma Matriz: \n\n"
+        "12. Grupo: Esta opcao apresentara informacoes sobre o grupo que criou o programa.\n\n"
+        "13. Sair: Esta opcao encerra o programa.\n\n"
         "Ao iniciar o programa, o usuario sera ao este menu. Para selecionar uma opcao, o usuario deve digitar o numero correspondente a opcao e pressionar Enter.\n"
         "Por exemplo, para criar uma nova matriz, o usuario deve digitar 2 e pressionar Enter. O programa entao solicitara ao usuario o numero de linhas e colunas para a matriz.\n\n"
         "As operacoes que requerem uma matriz, como inserir valor ou deletar uma matriz, pedirao ao usuario que especifique qual matriz ele gostaria de usar dentre as matrizes criadas. O usuario deve fazer isso digitando o indice da matriz, que comeca em 0 e vai ate n-1, onde n e o numero total de matrizes.\n\n"
@@ -91,7 +98,7 @@ void printText(int x){
          << "|                                                 |\n"
          << "---------------------------------------------------\n" << endl;
 
-  }else{
+  }else if(x == 3){
 
     cout << "\nPorFavor, digite uma opcao valida(entre 1 e 10)\n" << endl;
 

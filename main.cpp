@@ -8,10 +8,10 @@
 */
 
 #include <cstdlib> //TEST
-
 #include <iostream>
 #include <vector>
-#include <iomanip>
+#include <string>
+#include <fstream>
 #include "SparseMatrix.h"
 #include "PrintText.h" // Criação de uma biblioteca apenas para imprimir grandes textos
 
@@ -24,23 +24,62 @@ void clearScreen() { //TEST
         system("clear");
     #endif
 }
-/*
-//---------------------------------------------------------------------------------------------------
-ToDo
-SparseMatrix* readSparseMatrix(string NomeDoArquivo){
-  aaaaaa;
-}
-ToDo
-//---------------------------------------------------------------------------------------------------
-SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
-  return a + b;
-}
-ToDo
-//---------------------------------------------------------------------------------------------------
-SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
-  fazendo o codigo;
-}
-*/
+
+// //---------------------------------------------------------------------------------------------------
+// SparseMatrix* readSparseMatrix(string NomeDoArquivo){
+//   fstream arquivo;
+//   arquivo.open(NomeDoArquivo, ios::in);
+
+//   if(arquivo.is_open()){
+
+//     SparseMatrix* novaMatriz = new SparseMatrix(1, 1);
+
+//     cout << "Matriz importada com sucesso\n" << endl;
+//   }else{
+//     cout << "Nao foi possivel abrir o arquivo" << endl;
+//     return nullptr;
+//   }
+// }
+
+// //---------------------------------------------------------------------------------------------------
+// void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
+//   fstream arquivo;
+
+//   arquivo.open(NomeDoArquivo, ios::out | ios::trunc);
+
+//   if(arquivo.is_open()){
+//     arquivo << A->getQtdLinhas() << " " << A->getQtdColunas() << endl; // Escreve a quantidade de lin e col
+
+//     for(int i = 1; i <= A->getQtdLinhas(); ++i){
+//       for(int j = 1; j <= A->getQtdColunas(); ++j){
+//         if(A->get(i, j) != 0){
+//           arquivo << i << " " << j << " " << A->get(i, j) << endl;
+//         }
+//       }
+//     }
+
+//     cout << "Matriz exportada com sucesso\n" << endl;
+//     arquivo.close();
+//   }else{
+//     cout << "Nao foi possivel abrir o arquivo";
+//   }
+// }
+
+// //---------------------------------------------------------------------------------------------------
+// void deleteSparseMatrix(string NomeDoArquivo){
+  
+  
+
+// }
+
+// //---------------------------------------------------------------------------------------------------
+// SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
+// }
+
+// //---------------------------------------------------------------------------------------------------
+// SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
+// }
+
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* clone(SparseMatrix* A){
   SparseMatrix* novaMatriz = new SparseMatrix(A->getQtdLinhas(), A->getQtdColunas());
@@ -83,7 +122,7 @@ int main(){
         std::cerr << e.what() << '\n';
       }
 
-    }else if(opc == 3){ // Imprimir Matrizes
+    }else if(opc == 5){ // Imprimir Matrizes
 
       if(matrizes.empty()){
         printText(-1);
@@ -95,7 +134,7 @@ int main(){
         }
       }
 
-    }else if(opc == 4){ // Inserir Valor
+    }else if(opc == 6){ // Inserir Valor
 
       if(matrizes.empty()){
         printText(-1);
@@ -120,7 +159,7 @@ int main(){
         }
       }
 
-    }else if(opc == 5){ // Popular Matriz
+    }else if(opc == 7){ // Popular Matriz
 
       if(matrizes.empty()){
         printText(-1);
@@ -149,7 +188,7 @@ int main(){
         }
       }
 
-    }else if(opc == 6){ // Clonar uma matriz
+    }else if(opc == 3){ // Clonar uma matriz
 
       if(matrizes.empty()){
         printText(-1);
@@ -166,11 +205,11 @@ int main(){
         }
       }
 
-    }else if(opc == 7){ // Somar Matrizes
+    }else if(opc == 8){ // Somar Matrizes
 
-    }else if(opc == 8){ // Multiplicar Matrizes
+    }else if(opc == 9){ // Multiplicar Matrizes
 
-    }else if(opc == 9){ // Deletar uma Matriz
+    }else if(opc == 4){ // Deletar uma Matriz
 
       if(matrizes.empty()){
         printText(-1);
@@ -189,25 +228,51 @@ int main(){
         }
       }
 
-    }else if(opc == 10){ // Info do Grupo
+    }else if(opc == 12){ // Info do Grupo
 
       printText(9);
       
-    }else if(opc == 11){ // Sair
+    }else if(opc == 13){ // Sair
 
       for(unsigned i = 0; i < matrizes.size(); ++i){
 				delete matrizes[i];
       }
 			matrizes.clear();
 
-    }else{
-
-      printText(-1);
-
     }
+    // else if(opc == 11){ // Exportar uma Matriz(.txt)
 
+    //   if(matrizes.empty()){
+    //     printText(-1);
+    //   }else{
+    //     cout << "Digite o indice da Matriz que deseja escrever no arquivo:" << endl;
+    //     int i;
+    //     cin >> i;
+
+    //     if(i < 0 || i >= matrizes.size()){
+    //       printText(-2);
+    //     }else{
+    //       string nomeArqv;
+    //       cout << "Digite o nome do arquivo para salvar sua matriz(recomendado: \"matrizes.txt\")" << endl;
+    //       cin >> nomeArqv;
+    //       writeSparseMatrix(nomeArqv, matrizes[i]);
+    //     }
+    //   }
+
+    // }else if(opc == 10){ // Importar uma Matriz(.txt)
+
+    //   if(matrizes.empty()){
+    //     printText(-1);
+    //   }else{
+    //     cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matrizes.txt\"):" << endl;
+    //     string nomeArqv;
+    //     cin >> nomeArqv;
+
+    //     readSparseMatrix(nomeArqv);
+    //   }
+
+    // }
   }
-  
   return 0;
 }
 // Obrigado por usar nosso programa :)
