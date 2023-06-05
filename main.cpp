@@ -344,9 +344,9 @@ int main(){
     }else if(opc == 13){ // Sair
 
       for(unsigned i = 0; i < matrizes.size(); ++i){
-				delete matrizes[i];
+        delete matrizes[i];
       }
-			matrizes.clear();
+      matrizes.clear();
 
       break;
 
