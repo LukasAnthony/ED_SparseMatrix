@@ -27,7 +27,8 @@ void clearScreen() { //TEST
 }
 
 //---------------------------------------------------------------------------------------------------
-SparseMatrix* readSparseMatrix(string NomeDoArquivo){
+SparseMatrix* readSparseMatrix(string NomeDoArquivo){ 
+// Lê uma Matriz de um arquivo .txt especificado pelo usuario
   fstream arquivo;
   arquivo.open(NomeDoArquivo, ios::in);
 
@@ -65,13 +66,14 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
 }
 
 //---------------------------------------------------------------------------------------------------
-void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
+void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){ 
+// Escreve uma Matriz existente no arquivo .txt especificado pelo usuario
   fstream arquivo;
 
   arquivo.open(NomeDoArquivo, ios::out | ios::trunc);
 
   if(arquivo.is_open()){
-    arquivo << A->getQtdLinhas() << " " << A->getQtdColunas() << endl; // Escreve a quantidade de lin e col
+    arquivo << A->getQtdLinhas() << " " << A->getQtdColunas() << endl;
 
     for(int i = 1; i <= A->getQtdLinhas(); ++i){
       for(int j = 1; j <= A->getQtdColunas(); ++j){
@@ -90,6 +92,7 @@ void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
 
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
+// Soma duas Matrizes e retorna uma terceira contendo a soma
   SparseMatrix* C = new SparseMatrix(A->getQtdLinhas(), B->getQtdColunas());
 
   for(int i = 1; i <= C->getQtdLinhas(); ++i){
@@ -103,11 +106,12 @@ SparseMatrix* sum(SparseMatrix* A, SparseMatrix* B){
 }
 
 //---------------------------------------------------------------------------------------------------
-SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
+SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){ 
+// Multiplica duas Matrizes e retorna uma terceira Matriz contendo a multiplicação
   SparseMatrix* C = new SparseMatrix(A->getQtdLinhas(), B->getQtdColunas());
 
-  for(int i = 1; i <= A->getQtdLinhas(); ++i){ // percorre linhas
-    for(int j = 1; j <= B->getQtdColunas(); ++j){ // percorre colunas
+  for(int i = 1; i <= A->getQtdLinhas(); ++i){
+    for(int j = 1; j <= B->getQtdColunas(); ++j){
       double soma{0};
       for(int k = 1; k <= A->getQtdColunas(); ++k){
         soma += (A->get(i, k) * B->get(k, j));
@@ -120,7 +124,8 @@ SparseMatrix* multiply(SparseMatrix* A, SparseMatrix* B){
 }
 
 //---------------------------------------------------------------------------------------------------
-SparseMatrix* clone(SparseMatrix* A){
+SparseMatrix* clone(SparseMatrix* A){ 
+// Clona uma Matriz e retorna o clone
   SparseMatrix* novaMatriz = new SparseMatrix(A->getQtdLinhas(), A->getQtdColunas());
 
   for(int i = 1; i <= A->getQtdLinhas(); ++i){
@@ -135,7 +140,6 @@ SparseMatrix* clone(SparseMatrix* A){
 //---------------------------------------------------------------------------------------------------
 int main(){
   printText(2);
-
   vector<SparseMatrix*> matrizes;
   int opc{0};
   
@@ -150,16 +154,17 @@ int main(){
 
     }else if(opc == 2){ // Criar Matriz
 
-      try{
         int i, j;
         cout << "Digite a quantidade de linhas e colunas(respectivamente) da matriz que deseja criar: " << endl;
         cin >> i >> j;
-        SparseMatrix* tempAux = new SparseMatrix(i, j);
-        matrizes.push_back(tempAux);
-        cout << "Matriz[" << matrizes.size()-1 << "] criada com sucesso\n" << endl;
-      }catch(std::range_error& e){
-        std::cerr << e.what() << '\n';
-      }
+
+        if(i < 1 || j < 1){
+          printText(-7);
+        }else{
+          SparseMatrix* tempAux = new SparseMatrix(i, j);
+          matrizes.push_back(tempAux);
+          cout << "Matriz[" << matrizes.size()-1 << "] criada com sucesso\n" << endl;
+        }
 
     }else if(opc == 3){ // Clonar uma matriz
 
@@ -268,7 +273,7 @@ int main(){
       if(matrizes.empty()){
         printText(-1);
       }else if(matrizes.size() < 2){
-        cout << "Numero de matrizes insuficientes\n" << endl;
+        printText(-4);
       }else{
         cout << "Digite os indices das matrizes que deseja somar:" << endl;
         int i, j;
@@ -277,7 +282,7 @@ int main(){
         if(i < 0 || i >= matrizes.size() || j < 0 || j >= matrizes.size()){
           printText(-2);
         }else if(matrizes[i]->getQtdLinhas() != matrizes[j]->getQtdLinhas() || matrizes[i]->getQtdColunas() != matrizes[j]->getQtdColunas()){
-          cout << "Matrizes nao compativeis para a soma(tamanhos diferentes)\n" << endl;
+          printText(-5);
         }else{
           matrizes.push_back(sum(matrizes[i], matrizes[j]));
           cout << "Matrizes somadas com sucesso, nova matriz criada na lista\n" << endl;
@@ -289,7 +294,7 @@ int main(){
       if(matrizes.empty()){
         printText(-1);
       }else if(matrizes.size() < 2){
-        cout << "Numero de matrizes insuficientes\n" << endl;
+        printText(-4);
       }else{
         cout << "Digite os indices das matrizes que deseja multiplicar:" << endl;
         int i, j;
@@ -298,7 +303,7 @@ int main(){
         if(i < 0 || i >= matrizes.size() || j < 0 || j >= matrizes.size()){
           printText(-2);
         }else if(matrizes[i]->getQtdColunas() != matrizes[j]->getQtdLinhas()){
-          cout << "Matrizes nao compativeis para a multiplicacao(quantidade de colunas da primeira e diferente da quantidade de linhas da segunda)\n" << endl;
+          printText(-6);
         }else{
           matrizes.push_back(multiply(matrizes[i], matrizes[j]));
           cout << "Matrizes multiplicadas com sucesso, nova matriz criada na lista\n" << endl;
@@ -347,8 +352,11 @@ int main(){
         delete matrizes[i];
       }
       matrizes.clear();
-
       break;
+
+    }else{
+
+      printText(-3);
 
     }
     
