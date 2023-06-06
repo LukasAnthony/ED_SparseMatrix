@@ -8,27 +8,31 @@ Aqui está um resumo das opções do menu que o programa oferece:
 
 ### Menu de opções
 
-1.  **HowToUse**: Esta opção apresenta ao usuário um guia breve de como utilizar o programa.
+1. **HowToUse**: Esta opcao apresenta ao usuario esse guia breve de como utilizar este programa
 
-2.  **Criar Matriz**: Esta opção permite ao usuário criar uma nova matriz esparsa. É solicitado ao usuário que forneça o número de linhas e colunas para a matriz.
+2. **Criar matriz**: Esta opcao permitira ao usuario criar uma nova matriz esparsa. Sera solicitado ao usuario que forneca o numero de linhas e colunas para a matriz
 
-3.  **Imprimir Matrizes**: Esta opção permite ao usuário imprimir todas as matrizes que estão armazenadas.
+3. **Clonar uma matriz**: Esta opcao permitira ao usuario clonar uma matriz existente. O usuario devera fornecer o indice da matriz que sera clonada, a nova matriz sera alocada ao final da lista de matrizes
 
-4.  **Inserir Valor**: Esta opção permite ao usuário inserir um valor em uma posição específica de uma matriz esparsa. O usuário deve escolher a matriz, inserir linha, coluna e o valor a ser inserido.
+4. **Deletar uma matriz**: Esta opcao permitira ao usuario deletar uma matriz especifica. O usuario devera escolher a matriz a ser deletada
 
-5.  **Popular Matriz**: Esta opção permite ao usuário preencher uma matriz inteira com valores de sua escolha.
+5. **Imprimir Matrizes**: Esta opcao permitira ao usuario imprimir todas as matrizes que estao armazenadas
 
-6.  **Clonar uma Matriz**: Esta opção permite ao usuário clonar uma matriz existente. O usuário deve fornecer o índice da matriz que será clonada, a nova matriz será alocada ao final da lista de matrizes.
+6. **Inserir Valor**: Esta opcao permitira ao usuario inserir um valor em uma posicao especifica de uma matriz esparsa. O usuario devera escolher a matriz, inserir linha, coluna e o valor a ser inserido
 
-7.  **Somar Matrizes**: Esta opção permite ao usuário somar duas matrizes esparsas juntas. O usuário deve escolher as duas matrizes a serem somadas.
+7. Popular matriz**: Esta opcao permitira ao usuario preencher uma matriz inteira com valores de sua escolha
 
-8.  **Multiplicar Matrizes**: Esta opção permite ao usuário multiplicar duas matrizes esparsas juntas. O usuário deve escolher as duas matrizes a serem multiplicadas.
+8. **Somar Matrizes**: Esta opcao permitira ao usuario somar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem somadas
 
-9.  **Deletar uma matriz**: Esta opção permite ao usuário deletar uma matriz específica. O usuário deve escolher a matriz a ser deletada.
+9. **Multiplicar Matrizes**: Esta opcao permitira ao usuario multiplicar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem multiplicadas
 
-10. **Grupo**: Esta opção apresenta informações sobre o grupo que criou o programa.
+10. **Importar uma matriz**: Esta opcao escreve uma matriz escolhida pelo usuario em um arquivo .txt, o usuario fornece o nome do arquivo, se o arquivo existir, então, a funcao sobrescreve o arquivo, se o arquivo nao existir, a funcao cria o arquivo
 
-11. **Sair**: Esta opção encerra o programa.
+11. **Exportar uma matriz**: Esta opcao pede ao usuario que digite o nome do arquivo, entao o programa pega os valores do arquivo e transforma em uma matriz e insere no programa
+
+12. **Grupo**: Esta opcao apresentara informacoes sobre o grupo que criou o programa
+
+13. **Sair**: Esta opcao encerra o programa
 
 ## Como utilizar
 
