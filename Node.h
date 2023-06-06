@@ -1,7 +1,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-struct Node {
+class Node {
   friend class SparseMatrix;
 
   private:
