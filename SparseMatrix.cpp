@@ -58,7 +58,7 @@ SparseMatrix::~SparseMatrix(){
   while(aux1 != m_head){
     aux2 = aux1->direita;
 
-// Apagar as colunas
+// aux2 percorre e deleta as colunas
     while(aux2 != aux1){
       temp = aux2;
       aux2 = aux2->direita;
@@ -95,20 +95,20 @@ void SparseMatrix::insert(int i, int j, double value){
   Node* aux_lin = m_head;
   Node* aux_col = m_head;
 
-// Laço para chegar na linha desejada
+// Laço para aux_lin chegar na linha desejada
   while(aux_lin->linha != i){
     aux_lin = aux_lin->abaixo;
   }
-// Laço para andar nas colunas até chegar no nó que antecede(pela esquerda) o nó que será inserido na posição (i, j)
+// Laço para aux_lin andar nas colunas até chegar no nó que antecede(pela esquerda) o nó que será inserido na posição (i, j)
   while(aux_lin->direita->coluna < j && aux_lin->direita->coluna != 0){
     aux_lin = aux_lin->direita;
   }
 
-// Laço para chegar na coluna desejada
+// Laço para aux_col chegar na coluna desejada
   while(aux_col->coluna != j){ 
     aux_col = aux_col->direita;
   }
-// Laço para descer nas linhas até chegar no nó que antecede(por cima) o nó que será inserido na posição (i, j)
+// Laço para aux_col descer nas linhas até chegar no nó que antecede(por cima) o nó que será inserido na posição (i, j)
   while(aux_col->abaixo->linha < i && aux_col->abaixo->linha != 0){
     aux_col = aux_col->abaixo;
   }

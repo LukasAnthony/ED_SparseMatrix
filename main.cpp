@@ -7,7 +7,7 @@
 * Beatriz Nascimento de Oliveira - (537634) - beatriznascimento@alu.ufc.br
 */
 
-#include <cstdlib> //TEST
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <string>
@@ -18,7 +18,8 @@
 
 using namespace std;
 
-void clearScreen() { //TEST
+void clearScreen(){
+// Função para limpar a tela
     #ifdef _WIN32
         system("cls");
     #else
@@ -28,7 +29,7 @@ void clearScreen() { //TEST
 
 //---------------------------------------------------------------------------------------------------
 SparseMatrix* readSparseMatrix(string NomeDoArquivo){ 
-// Lê uma Matriz de um arquivo .txt especificado pelo usuario
+// Recebe um arquivo .txt especificado pelo usuario e transforma em uma matriz, ou retorna nullprt se o arquivo não for válido
   fstream arquivo;
   arquivo.open(NomeDoArquivo, ios::in);
 
@@ -36,7 +37,7 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
     SparseMatrix* novaMatriz;
     stringstream ss;
     string linha;
-    int aux_linha, aux_coluna, i{0};
+    int aux_linha{0}, aux_coluna{0}, i{0};
     double aux_val;
 
     while(!arquivo.eof()){
@@ -44,6 +45,12 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
       if(i == 0){
         ss << linha;
         ss >> aux_linha >> aux_coluna;
+        
+        if(aux_linha < 1 || aux_coluna < 1){
+          printText(-9);
+          return nullptr;
+        }
+        
         novaMatriz = new SparseMatrix(aux_linha, aux_coluna);
         ++i;
         ss.str("");
@@ -51,12 +58,17 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
       }else{
         ss << linha;
         ss >> aux_linha >> aux_coluna >> aux_val;
+
+        if(aux_linha > novaMatriz->getQtdLinhas() || aux_linha < 1 || aux_coluna > novaMatriz->getQtdColunas() || aux_coluna < 1){
+          printText(-9);
+          return nullptr;
+        }
+
         novaMatriz->insert(aux_linha, aux_coluna, aux_val);
         ss.str("");
         ss.clear();
       }
     }
-
     cout << "Matriz importada com sucesso\n" << endl;
     return novaMatriz;
   }else{
@@ -67,7 +79,7 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
 
 //---------------------------------------------------------------------------------------------------
 void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){ 
-// Escreve uma Matriz existente no arquivo .txt especificado pelo usuario
+// Escreve uma Matriz existente em um arquivo .txt, com o nome especificado pelo usuario
   fstream arquivo;
 
   arquivo.open(NomeDoArquivo, ios::out | ios::trunc);
@@ -226,16 +238,17 @@ int main(){
         if(i < 0 || i >= matrizes.size()){
           printText(-2);
         }else{
-          try{
-            int x, y;
-            double valor;
-            cout << "Digite a posicao(linha e coluna) e o valor:" << endl;
-            cin >> x >> y >> valor;
+          int x, y;
+          double valor;
+          cout << "Digite a posicao(linha e coluna) e o valor:" << endl;
+          cin >> x >> y >> valor;
+
+          if(x > matrizes[i]->getQtdLinhas() || x < 1 || y > matrizes[i]->getQtdColunas() || y < 1){
+            printText(-8);
+          }else{
             matrizes[i]->insert(x, y, valor);
             cout << "Inserido com sucesso\n" << endl;
-          }catch(std::range_error& e){
-            std::cerr << e.what() << '\n';
-          }
+          } 
         }
       }
 

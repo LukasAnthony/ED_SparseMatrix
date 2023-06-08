@@ -3,6 +3,7 @@
 
 #include "Node.h"
 
+// Classe da Matriz Esparsa
 class SparseMatrix {
   private:
     Node* m_head;
