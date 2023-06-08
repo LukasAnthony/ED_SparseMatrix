@@ -155,14 +155,14 @@ void printText(int x){
 
   }else if(x == -8){
 
-    cout << "------------------------------------------------\n"
-            "|                    AVISO                     |\n"
-            "------------------------------------------------\n"
-            "|                                              |\n"
-            "| Posicao invalida, a posicao que voce digitou |\n"
-            "| nao e valida para a matriz que voce escolheu |\n"
-            "|                                              |\n"
-            "------------------------------------------------\n" << endl;
+    cout << "-------------------------------------------\n"
+            "|                  AVISO                  |\n"
+            "-------------------------------------------\n"
+            "|                                         |\n"
+            "| A posicao que voce digitou nao e valida |\n"
+            "| para a matriz que voce escolheu         |\n"
+            "|                                         |\n"
+            "-------------------------------------------\n" << endl;
 
   }else if(x == -9){
 

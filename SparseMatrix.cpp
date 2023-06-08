@@ -5,7 +5,7 @@
 
 SparseMatrix::SparseMatrix(int n, int m){
   if(n <= 0 || m <= 0){
-    throw std::range_error("Error: tamanho invalido\n");
+    throw std::invalid_argument("Error: tamanho invalido\n");
   }
 
   m_head = new Node(nullptr, nullptr, 0, 0, 0);
@@ -86,7 +86,7 @@ SparseMatrix::~SparseMatrix(){
 //----------------------------------------------------------------------------------
 void SparseMatrix::insert(int i, int j, double value){
   if(i <= 0 || j <= 0 || i > qtd_lin || j > qtd_col){
-    throw std::range_error("Error: indice invalido\n");
+    throw std::out_of_range("Error: indice invalido\n");
   }
   if(value == 0){
     return;
@@ -126,7 +126,7 @@ void SparseMatrix::insert(int i, int j, double value){
 //----------------------------------------------------------------------------------
 double SparseMatrix::get(int i, int j){
   if(i <= 0 || j <= 0 || i > qtd_lin || j > qtd_col){
-    throw std::range_error("Error: indice invalido\n");
+    throw std::out_of_range("Error: indice invalido\n");
   }
 
   Node* aux = m_head;

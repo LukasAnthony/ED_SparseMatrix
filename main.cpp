@@ -7,7 +7,7 @@
 * Beatriz Nascimento de Oliveira - (537634) - beatriznascimento@alu.ufc.br
 */
 
-#include <cstdlib>
+#include <cstdlib> // Biblioteca para a limpeza de tela
 #include <iostream>
 #include <vector>
 #include <string>
