@@ -42,6 +42,7 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
 
     while(!arquivo.eof()){
       getline(arquivo, linha);
+// Na primeira linha(i == 0) lê apenas a quantidade de linhas e colunas da matriz, verifica se são números válidos para criar a matriz, as demais linhas ditam a posição e os valores a serem inseridos
       if(i == 0){
         ss << linha;
         ss >> aux_linha >> aux_coluna;
@@ -85,6 +86,7 @@ void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
   arquivo.open(NomeDoArquivo, ios::out | ios::trunc);
 
   if(arquivo.is_open()){
+// Começa escrevendo o tamanho da matriz e nas demais linhas escreve os valores presentes na matriz
     arquivo << A->getQtdLinhas() << " " << A->getQtdColunas() << endl;
 
     for(int i = 1; i <= A->getQtdLinhas(); ++i){

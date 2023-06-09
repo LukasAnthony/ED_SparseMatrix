@@ -5,6 +5,8 @@
 
 using namespace std;
 
+// Essa biblioteca tem como única função imprimir grandes textos(menu, caixas de aviso, documentação rápida e o texto "ED - Matrizes Esparsas" inicial) para não "poluir" o arquivo main.cpp
+
 void printText(int x){
   if(x == 0){
 
