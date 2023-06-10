@@ -73,7 +73,7 @@ SparseMatrix* readSparseMatrix(string NomeDoArquivo){
     cout << "Matriz importada com sucesso\n" << endl;
     return novaMatriz;
   }else{
-    cout << "Nao foi possivel abrir o arquivo" << endl;
+    printText(-10);
     return nullptr;
   }
 }
@@ -100,7 +100,7 @@ void writeSparseMatrix(string NomeDoArquivo, SparseMatrix* A){
     cout << "Matriz exportada com sucesso\n" << endl;
     arquivo.close();
   }else{
-    cout << "Nao foi possivel abrir o arquivo";
+    printText(-10);
   }
 }
 
