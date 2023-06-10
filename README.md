@@ -20,7 +20,7 @@ Aqui está um resumo das opções do menu que o programa oferece:
 
 6. **Inserir Valor**: Esta opcao permitira ao usuario inserir um valor em uma posicao especifica de uma matriz esparsa. O usuario devera escolher a matriz, inserir linha, coluna e o valor a ser inserido
 
-7. Popular matriz**: Esta opcao permitira ao usuario preencher uma matriz inteira com valores de sua escolha
+7. **Popular matriz**: Esta opcao permitira ao usuario preencher uma matriz inteira com valores de sua escolha
 
 8. **Somar Matrizes**: Esta opcao permitira ao usuario somar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem somadas
 
