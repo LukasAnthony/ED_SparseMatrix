@@ -327,7 +327,7 @@ int main(){
 
     }else if(opc == 10){ // Importar uma Matriz(.txt)
 
-      cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matrizes.txt\"):" << endl;
+      cout << "Digite o nome do arquivo para importar a Matriz(recomendado: \"matriz.txt\"):" << endl;
       string nomeArqv;
       cin >> nomeArqv;
 
@@ -351,7 +351,7 @@ int main(){
           printText(-2);
         }else{
           string nomeArqv;
-          cout << "Digite o nome do arquivo para salvar sua matriz(recomendado: \"matrizes.txt\")" << endl;
+          cout << "Digite o nome do arquivo para salvar sua matriz(recomendado: \"matriz.txt\")" << endl;
           cin >> nomeArqv;
           writeSparseMatrix(nomeArqv, matrizes[i]);
         }

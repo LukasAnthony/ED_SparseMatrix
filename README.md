@@ -26,11 +26,11 @@ Aqui está um resumo das opções do menu que o programa oferece:
 
 9. **Multiplicar Matrizes**: Esta opcao permitira ao usuario multiplicar duas matrizes esparsas juntas. O usuario devera escolher as duas matrizes a serem multiplicadas
 
-10. **Importar uma matriz**: Esta opcao escreve uma matriz escolhida pelo usuario em um arquivo .txt, o usuario fornece o nome do arquivo, se o arquivo existir, então, a funcao sobrescreve o arquivo, se o arquivo nao existir, a funcao cria o arquivo
+10. **Importar uma matriz**: Esta opcao pede ao usuario que digite o nome do arquivo, entao o programa pega os valores do arquivo e transforma em uma matriz e insere no programa
 
-11. **Exportar uma matriz**: Esta opcao pede ao usuario que digite o nome do arquivo, entao o programa pega os valores do arquivo e transforma em uma matriz e insere no programa
+11. **Exportar uma matriz**: Esta opcao escreve uma matriz escolhida pelo usuario em um arquivo .txt, o usuario fornece o nome do arquivo, se o arquivo existir, então, a funcao sobrescreve o arquivo, se o arquivo nao existir, a funcao cria o arquivo
 
-12. **Grupo**: Esta opcao apresentara informacoes sobre o grupo que criou o programa
+12. **Info do Grupo**: Esta opcao apresentara informacoes sobre o grupo que criou o programa
 
 13. **Sair**: Esta opcao encerra o programa
 
