@@ -5,6 +5,10 @@
 
 * Lucas Anthony Soares de Sousa - (539300) - lucasanthony@alu.ufc.br
 * Beatriz Nascimento de Oliveira - (537634) - beatriznascimento@alu.ufc.br
+
+* LINKS ÚTEIS(NOTION | GITHUB):
+* https://quinha.notion.site/Estrutura-de-dados-a0b7ac6d265b497ba5eb1d06118922a9?pvs=4
+* https://github.com/LukasAnthony/ED_SparseMatrix
 */
 
 #include <cstdlib> // Biblioteca para a limpeza de tela
